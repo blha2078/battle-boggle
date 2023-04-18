@@ -7,13 +7,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.application.Application;
 
 import java.io.IOException;
 
-public class StartController {
+public class StartController extends Application{
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(StartController.class.getResource("start-view.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load());
+        stage.setTitle("Boggle Battle");
+        stage.setScene(scene1);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
 
     public void switchScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("username-view.fxml"));
