@@ -10,13 +10,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StartSceneController {
+public class StartController {
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     public void switchScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("usernameScene.fxml"));
+        root = FXMLLoader.load(getClass().getResource("username-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
