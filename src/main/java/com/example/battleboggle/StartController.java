@@ -1,5 +1,4 @@
 package com.example.battleboggle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.application.Application;
-
 import java.io.IOException;
 
 public class StartController extends Application{
@@ -37,6 +35,7 @@ public class StartController extends Application{
         stage.show();
     }
 
+    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project used to figure out how to close out a view
     public void closeButton(ActionEvent event) {
         ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
     }
