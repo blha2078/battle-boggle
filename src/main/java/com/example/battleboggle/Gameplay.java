@@ -30,6 +30,9 @@ public class Gameplay {
             GameRound round = new GameRound(factory);
             round.play();
             round.analyzeRound();
+
+//            leaderboard.updateLeaderboard("bhami", 50);
+
             finished = true; // this will limit to one round for now
         } while (!finished);
     }
