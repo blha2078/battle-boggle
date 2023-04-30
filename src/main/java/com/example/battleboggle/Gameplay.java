@@ -22,6 +22,8 @@ public class Gameplay {
     public void runGame(){
         // keep creating game rounds and running them as long as we want to play
         boolean finished = false;
+        // creating leaderboard object (SINGLETON)
+        Leaderboard leaderboard = Leaderboard.getLeaderboard();
         // creating a factory object to create boards
         GameBoardFactory factory = new GameBoardFactory();
         do {
