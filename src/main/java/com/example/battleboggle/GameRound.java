@@ -93,10 +93,12 @@ public class GameRound {
             System.out.println(this.missed_words.get(i));
         }
 
+        // calculating scores
+        StandardScorer standardScorer = new StandardScorer(this.valid_words);
+        ArcadeScorer arcadeScorer = new ArcadeScorer(this.valid_words, this.invalid_words.size(), this.missed_words.size());
+        this.scores[0] = standardScorer.GetScore();
+        this.scores[1] = arcadeScorer.GetScore();
+        // returns both types of scores
         return this.scores;
-    }
-
-    public void score(){
-
     }
 }
