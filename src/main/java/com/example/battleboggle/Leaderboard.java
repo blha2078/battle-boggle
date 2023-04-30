@@ -27,7 +27,7 @@ public class Leaderboard {
     // method to update the leaderboard. Returns true if user broke top 10, false if not
     boolean updateLeaderboard(String username, int score){
         // checking if user beat 10th best score
-        if (score > scores[this.leaderboardLength - 1]){
+        if (score < scores[this.leaderboardLength - 1]){
             System.out.println("Score not good enough for leaderboard");
             return false;
         }
@@ -36,7 +36,7 @@ public class Leaderboard {
             System.out.println("Score is in top 10, updating leaderboard...");
             // first, iterate through and see where the new score belong
             int index = this.leaderboardLength - 1;
-            while (index <= 1 && score > this.scores[index - 1]){
+            while (index >= 1 && score > this.scores[index - 1]){
                 index --;
             }
             System.out.println("Index for new score: " + index);
