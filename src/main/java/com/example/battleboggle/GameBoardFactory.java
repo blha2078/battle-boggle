@@ -7,6 +7,12 @@ public class GameBoardFactory {
         if (type.equals("Standard")) {
             System.out.println("in standard");
             board = new StandardBoard();
+        } else if (type.equals("Original")){
+            System.out.println("in standard");
+            board = new StandardBoard();
+        } else {
+            // error case
+            System.out.println("SHould have specified a standard or original board");
         }
         return board;
     }
