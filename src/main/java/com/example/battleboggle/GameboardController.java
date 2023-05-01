@@ -7,6 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.application.Platform;
@@ -18,18 +21,25 @@ public class GameboardController {
     private Parent root;
     private int timeSeconds = 180;//sets the countdown to 3 minutes
     private Timeline timeline;
+    @FXML
+    private TextField textField;
 
     @FXML
     private Button startButton;
 
     @FXML
     private Label countdownLabel;
+
+
+
+
     /*
     Used https://stackoverflow.com/questions/13784333/platform-runlater-and-task-in-javafx to help understand Platform.runLater
     to prevent the lag that was happening with the timer updating initially
 
      */
     public void initialize() { //initalizes the timer that will be displayed to the view
+
         //create a timeline to display each new keyframe that shows the countdwon
         timeline = new Timeline(
                 //makes a new keyframe for every second that is updated
@@ -64,4 +74,28 @@ public class GameboardController {
         timeline.play();//runs the keyframes from the initialize function
 
     }
+
+    GameRound gameRound = new GameRound(new GameBoardFactory());
+
+    @FXML
+    void EnterKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            String text = textField.getText();
+            gameRound.addToList(text);
+            System.out.println(gameRound.input_words + " user input so far");
+            //sets the text field to be blank again after user hits enter
+            /*for(int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    System.out.println(gameRound.gameboard.board[i][j]);
+                }
+            }
+
+             */
+            textField.setText("");
+        }
+    }
+
+
+
+
 }
