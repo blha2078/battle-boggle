@@ -1,5 +1,7 @@
 # battle-boggle: Blake Hamilton, Matthew McDermott
 
+**Java Version**: Java version 19 and 19 were used (any version 17+ will work)
+**Instructions to start**: Run Main
 ## Battle Boggle Instructions
 Battle Boggle is a twist on the classic Boggle word game. Players compete one at a time instead of all together in order to achieve the highest possible score. All scores are stored on a leaderboard, arcade-style. The game will give you your score after each round as it would be scored in standard Boggle, as well as your arcade score, which is generated based on the following:
 - Word count/length: Similar to normal Boggle, positive points will be awarded for longer words
