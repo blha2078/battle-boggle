@@ -4,23 +4,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.battleboggle.GameboardController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.battleboggle.GameboardController">
    <children>
-      <Label layoutX="65.0" layoutY="289.0" text="Enter a word">
+      <Label layoutX="48.0" layoutY="496.0" text="Enter a word">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="textField" layoutX="65.0" layoutY="329.0" onKeyPressed="#EnterKey" prefHeight="26.0" prefWidth="244.0" />
+      <TextField fx:id="textField" layoutX="48.0" layoutY="536.0" onKeyPressed="#EnterKey" prefHeight="26.0" prefWidth="244.0" />
       <Text layoutX="458.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="startButton" layoutX="509.0" layoutY="323.0" mnemonicParsing="false" onAction="#startGameButton" text="Start">
+      <Button fx:id="startButton" layoutX="513.0" layoutY="535.0" mnemonicParsing="false" onAction="#startGameButton" text="Start">
          <font>
             <Font size="15.0" />
          </font>
@@ -30,5 +33,19 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <GridPane fx:id="gameGrid" gridLinesVisible="true" layoutX="48.0" layoutY="39.0" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: #333333; -fx-grid-lines-visible: #333333;">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="90.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="68.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="68.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
    </children>
 </AnchorPane>

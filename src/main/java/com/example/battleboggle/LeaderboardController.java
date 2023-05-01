@@ -14,14 +14,17 @@ public class LeaderboardController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    GameboardController controller = new GameboardController();
 
 
     public void switchScene(ActionEvent event) throws IOException {
+        controller.initialize();
         root = FXMLLoader.load(getClass().getResource("gameboard-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project used to figure out how to close out a view

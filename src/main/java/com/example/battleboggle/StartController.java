@@ -16,6 +16,7 @@ public class StartController extends Application{
 
     @Override
     public void start(Stage stage) throws IOException {
+        //loads the start-view
         FXMLLoader fxmlLoader = new FXMLLoader(StartController.class.getResource("start-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load());
         stage.setTitle("Boggle Battle");
@@ -24,10 +25,15 @@ public class StartController extends Application{
     }
 
     public static void main(String[] args) {
+        //moved the contents of the main.java here to try and condense
+        System.out.println("Starting game");
+        Gameplay game = new Gameplay();
+        game.runGame();
         launch();
     }
 
     public void switchScene(ActionEvent event) throws IOException {
+        //action that switches the scene to username-view if button is clicked
         root = FXMLLoader.load(getClass().getResource("username-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -3,7 +3,7 @@ package com.example.battleboggle;
 // main class to run game
 public class Gameplay {
     // current user's username
-    public String username;
+    public static String username;
 
     //leaderboard object
 //    LeaderBoard leaderBoard;
@@ -24,13 +24,22 @@ public class Gameplay {
         boolean finished = false;
         // creating leaderboard object (SINGLETON)
         Leaderboard leaderboard = Leaderboard.getLeaderboard();
+
         // creating a factory object to create boards
-        GameBoardFactory factory = new GameBoardFactory();
+        //GameBoardFactory factory = new GameBoardFactory();
+
+        //creating a controller object for the gameboard
+        GameboardController controller = new GameboardController();
+        System.out.println(" Username before game: " + username);
         do {
+            /*
             GameRound round = new GameRound(factory);
             round.play();
             round.analyzeRound();
+             */
+            controller.initialize();
             finished = true; // this will limit to one round for now
+            System.out.println(" Username after game: " + username);
         } while (!finished);
     }
 

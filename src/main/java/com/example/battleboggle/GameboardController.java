@@ -10,6 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.application.Platform;
@@ -19,7 +22,7 @@ public class GameboardController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int timeSeconds = 180;//sets the countdown to 3 minutes
+    private int timeSeconds = 10;//sets the countdown to 3 minutes
     private Timeline timeline;
     @FXML
     private TextField textField;
@@ -29,18 +32,30 @@ public class GameboardController {
 
     @FXML
     private Label countdownLabel;
+    private GameRound gameRound;
 
-
-
+    @FXML
+    private GridPane gameGrid;
 
     /*
     Used https://stackoverflow.com/questions/13784333/platform-runlater-and-task-in-javafx to help understand Platform.runLater
     to prevent the lag that was happening with the timer updating initially
-
      */
+    public void setRound(GameRound round) {
+        this.gameRound = round;
+    }
+
+    GameBoardFactory factory = new GameBoardFactory();
     public void initialize() { //initalizes the timer that will be displayed to the view
 
-        //create a timeline to display each new keyframe that shows the countdwon
+        //makes a new round here everytime this view is run instead of being in the gameplay class
+        GameRound round = new GameRound(factory);
+        setRound(round);
+        //resets the input_words arraylist after each round 
+        gameRound.input_words.clear();
+        round.play();
+        //round.analyzeRound();
+        //create a timeline to display each new keyframe that shows the countdown
         timeline = new Timeline(
                 //makes a new keyframe for every second that is updated
                 new KeyFrame(Duration.seconds(1), event -> {
@@ -64,38 +79,42 @@ public class GameboardController {
             Stage stage = (Stage) countdownLabel.getScene().getWindow();
             stage.setScene(scene);
         } catch (IOException e) {
-            System.out.println("error with switching from gameboard view");
+            System.out.println("error with switching from gameboard-view");
         }
     }
 
     @FXML
     private void startGameButton(){
+        for(int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                //iterate through the gameboard that was created by factory
+                System.out.println(gameRound.gameboard.board[i][j]);
+                //adds the letter in the gameboard object to a text box to display to the view
+                Text text = new Text(Character.toString(gameRound.gameboard.board[i][j]));
+                //makes the font for each text
+                text.setFont(new Font(40));
+                //adds the text box to the grid
+                gameGrid.add(text, j, i);
+            }
+        }
         startButton.setVisible(false);
         timeline.play();//runs the keyframes from the initialize function
 
     }
 
-    GameRound gameRound = new GameRound(new GameBoardFactory());
-
     @FXML
+    //function that takes in user input each time the enter key
     void EnterKey(KeyEvent event) {
+        //checks if enter key is pressed
         if (event.getCode() == KeyCode.ENTER) {
+            //gets the text from the text field in the view
             String text = textField.getText();
+            //calls function in gameRound that adds text to the input_words arrayList
             gameRound.addToList(text);
             System.out.println(gameRound.input_words + " user input so far");
             //sets the text field to be blank again after user hits enter
-            /*for(int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    System.out.println(gameRound.gameboard.board[i][j]);
-                }
-            }
-
-             */
             textField.setText("");
         }
     }
-
-
-
 
 }
