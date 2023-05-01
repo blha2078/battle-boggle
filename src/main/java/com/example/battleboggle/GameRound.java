@@ -7,7 +7,7 @@ public class GameRound {
     // Factory to create game boards
     GameBoardFactory factory;
     // all the words that a user has input
-    public ArrayList<String> input_words = new ArrayList<>();
+    public static ArrayList<String> input_words = new ArrayList<>();
     // valid words that a user has input
     public ArrayList<String> valid_words = new ArrayList<>();
     // invalid words that a user has input
@@ -28,6 +28,9 @@ public class GameRound {
     // constructor to make a specified type of board
     public GameRound(GameBoardFactory factory){
         this.factory = factory;
+    }
+    public void addToList(String text) {
+        input_words.add(text);
     }
     // method to play a round
     public void play(){
