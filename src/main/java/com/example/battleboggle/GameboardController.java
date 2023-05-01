@@ -22,7 +22,7 @@ public class GameboardController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int timeSeconds = 10;//sets the countdown to 3 minutes
+    private int timeSeconds = 180;//sets the countdown to 3 minutes
     private Timeline timeline;
     @FXML
     private TextField textField;
