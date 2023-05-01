@@ -24,7 +24,7 @@ public class StartController extends Application{
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void kickStart() {
         //moved the contents of the main.java here to try and condense
         System.out.println("Starting game");
         Gameplay game = new Gameplay();
