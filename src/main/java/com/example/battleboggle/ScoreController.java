@@ -14,6 +14,11 @@ public class ScoreController {
     private Scene scene;
     private Parent root;
 
+    public void initialize(){
+        for(int i = 0; i < GameRound.valid_words.size(); i++){
+            System.out.println(GameRound.valid_words.get(i));
+        }
+    }
 
     public void switchScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("leaderboard-view.fxml"));

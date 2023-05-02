@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -22,7 +23,7 @@ public class GameboardController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int timeSeconds = 10;//sets the countdown to 3 minutes
+    private int timeSeconds = 180;//sets the countdown to 3 minutes
     private Timeline timeline;
     @FXML
     private TextField textField;
@@ -64,6 +65,7 @@ public class GameboardController {
                     Platform.runLater(() -> countdownLabel.setText(String.format("%02d:%02d", timeSeconds / 60, timeSeconds % 60)));
                     //tells that program that when it hits view to stop the timeline and change views
                     if (timeSeconds <= 0) {
+                        round.analyzeRound();
                         timeline.stop();
                         switchView();
                     }
@@ -73,11 +75,13 @@ public class GameboardController {
     }
     private void switchView() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("leaderboard-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("score-view.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) countdownLabel.getScene().getWindow();
             stage.setScene(scene);
+            ScoreController controller = new ScoreController();
+            controller.initialize();
         } catch (IOException e) {
             System.out.println("error with switching from gameboard-view");
         }
@@ -88,7 +92,7 @@ public class GameboardController {
         for(int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 //iterate through the gameboard that was created by factory
-                System.out.println(gameRound.gameboard.board[i][j]);
+                //System.out.println(gameRound.gameboard.board[i][j]);
                 //adds the letter in the gameboard object to a text box to display to the view
                 Text text = new Text(Character.toString(gameRound.gameboard.board[i][j]));
                 //makes the font for each text

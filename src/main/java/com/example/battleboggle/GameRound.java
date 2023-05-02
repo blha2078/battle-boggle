@@ -9,7 +9,7 @@ public class GameRound {
     // all the words that a user has input
     public static ArrayList<String> input_words = new ArrayList<>();
     // valid words that a user has input
-    public ArrayList<String> valid_words = new ArrayList<>();
+    public static ArrayList<String> valid_words = new ArrayList<>();
     // invalid words that a user has input
     public ArrayList<String> invalid_words = new ArrayList<>();
     // words the user missed
