@@ -10,7 +10,11 @@ public class Leaderboard {
     String [] usernames = new String[leaderboardLength];
 
     // top 10 scores, sorted by score (first best)
-    int[] scores = new int[leaderboardLength];;
+    int[] scores = new int[leaderboardLength];
+
+    //getters for scores and usernames
+    String[] getUsernames(){ return this.usernames;}
+    int[] getScores(){ return this.scores;}
 
     // SINGLETON PATTERN: EAGER INSTANTIATION
     private static Leaderboard leaderboard = new Leaderboard();
