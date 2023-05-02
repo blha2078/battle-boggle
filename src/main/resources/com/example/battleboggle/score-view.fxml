@@ -5,23 +5,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.battleboggle.ScoreController">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.battleboggle.ScoreController">
    <children>
-      <Label layoutX="187.0" layoutY="42.0" text="Score:">
+      <Label layoutX="246.0" layoutY="42.0" text="Score:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="184.0" layoutY="92.0" text="Words:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="455.0" layoutY="315.0" mnemonicParsing="false" onAction="#switchScene" text="Next">
+      <Button layoutX="500.0" layoutY="528.0" mnemonicParsing="false" onAction="#switchScene" text="Next">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <Label fx:id="score" layoutX="308.0" layoutY="42.0" prefHeight="26.0" prefWidth="91.0" text="score">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

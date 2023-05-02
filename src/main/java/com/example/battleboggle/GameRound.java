@@ -16,7 +16,7 @@ public class GameRound {
     public ArrayList<String> missed_words = new ArrayList<>();
 
     // stores the regular score and arcade score
-    public int scores[] = {-1, -1};
+    public static int scores[] = {-1, -1};
     // gameboard for the round
     // to be replaced later with factory
 //    public char[][] gameboard = { { 'n', 'i', 'o', 'r' },

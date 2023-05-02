@@ -35,7 +35,7 @@
       </Label>
       <GridPane fx:id="gameGrid" gridLinesVisible="true" layoutX="48.0" layoutY="39.0" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: #333333; -fx-grid-lines-visible: #333333;">
         <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
