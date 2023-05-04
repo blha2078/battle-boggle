@@ -5,6 +5,7 @@ import java.util.Random;
 
 import static java.lang.Math.max;
 
+// Implements template pattern
 public abstract class Scorer {
     // counts the number of words with each letter count
     // example: letter_count[4] = 2 means there are 2 words with 5 letters
@@ -66,6 +67,7 @@ public abstract class Scorer {
     }
 }
 
+// first extension of template pattern
 class StandardScorer extends Scorer {
     // simply calls super constructor with valid_words
     public StandardScorer(ArrayList<String> valid_words){
@@ -78,7 +80,7 @@ class StandardScorer extends Scorer {
     }
 }
 
-
+// second extensions of template pattern
 // Arcade scorer is the twist on our game- it creates an arcade-style scoring that includes valid words, invalid words, and missed words
 class ArcadeScorer extends Scorer {
     // count variables to be updated later

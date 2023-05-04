@@ -68,7 +68,7 @@ public class ScoreController {
         scoretableView.setLayoutY(83);
         wordColumn.setStyle("-fx-alignment: CENTER;");
         //updates the leaderboard
-        Leaderboard.getLeaderboard().updateLeaderboard(Gameplay.username, GameRound.scores[0]);
+        Leaderboard.getLeaderboard().updateLeaderboard(Gameplay.username, GameRound.scores[1]);
         /*for(int i = 0; i < GameRound.valid_words.size(); i++){
             System.out.println(GameRound.valid_words.get(i));
         }

@@ -47,8 +47,4 @@ public class Gameplay {
     public void endGame(){
 
     }
-
-
-
-
 }
