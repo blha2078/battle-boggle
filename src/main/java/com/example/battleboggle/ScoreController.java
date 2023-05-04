@@ -37,10 +37,14 @@ public class ScoreController {
     @FXML
     private Label score;
 
+    @FXML
+    private Label score2;
+
 
     public void initialize(){
         //note: will later need to change valueOf(???) based on the type of gameboard instead of hardcoding it
         score.setText(String.valueOf(GameRound.scores[0]));
+        score2.setText(String.valueOf(GameRound.scores[1]));
         //make an observablelist for the valid words arraylist
         ObservableList<String> observableList = FXCollections.observableList(GameRound.valid_words);
         //set the table view's items to the list above
@@ -63,7 +67,8 @@ public class ScoreController {
         scoretableView.setLayoutX(83);
         scoretableView.setLayoutY(83);
         wordColumn.setStyle("-fx-alignment: CENTER;");
-
+        //updates the leaderboard
+        Leaderboard.getLeaderboard().updateLeaderboard(Gameplay.username, GameRound.scores[0]);
         /*for(int i = 0; i < GameRound.valid_words.size(); i++){
             System.out.println(GameRound.valid_words.get(i));
         }
@@ -71,6 +76,8 @@ public class ScoreController {
     }
 
     public void switchScene(ActionEvent event) throws IOException {
+        LeaderboardController leadController = new LeaderboardController();
+        leadController.initialize();
         root = FXMLLoader.load(getClass().getResource("leaderboard-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

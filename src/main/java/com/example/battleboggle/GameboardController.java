@@ -65,6 +65,7 @@ public class GameboardController {
                     Platform.runLater(() -> countdownLabel.setText(String.format("%02d:%02d", timeSeconds / 60, timeSeconds % 60)));
                     //tells that program that when it hits view to stop the timeline and change views
                     if (timeSeconds <= 0) {
+
                         round.analyzeRound();
                         timeline.stop();
                         switchView();

@@ -37,9 +37,9 @@ public class GameRound {
         // generate board
         this.gameboard = this.factory.generateBoard("Standard");
         // sample round
-        input_words.add("near");
-        input_words.add("nit");
-        input_words.add("notaword");
+        //input_words.add("near");
+        //input_words.add("nit");
+        //input_words.add("notaword");
     }
 
 
